@@ -194,12 +194,19 @@ public class HMatrix2D
 
     public void setTranslationMat(float transX, float transY)
     {
-        // your code here
+        setIdentity();
+        entries[0,2] = transX;
+        entries[1,2] = transY; 
     }
 
     public void setRotationMat(float rotDeg)
     {
-        // your code here
+        setIdentity();
+        float rad = rotDeg * (Mathf.PI / 180.0f);
+        entries[0,0] =  Mathf.Cos(rad);
+        entries[0,1] =  -Mathf.Sin(rad);
+        entries[1,0] =  Mathf.Sin(rad);
+        entries[1,1] =  Mathf.Cos(rad);
     }
 
     public void setScalingMat(float scaleX, float scaleY)
