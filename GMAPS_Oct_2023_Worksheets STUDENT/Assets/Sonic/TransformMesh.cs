@@ -24,12 +24,12 @@ public class TransformMesh : MonoBehaviour
         pos = new HVector2D(gameObject.transform.position.x, gameObject.transform.position.y);
         //Translate(1,1);
         Rotate(-45);
-       // Your code here
    }
 
 
    void Translate(float x, float y)
    {
+        //creates a transform matrix to reference and multiply position by
         transformMatrix.setIdentity();
         transformMatrix.setTranslationMat(x,y);
         Transform();
@@ -39,6 +39,7 @@ public class TransformMesh : MonoBehaviour
 
    void Rotate(float angle)
    {
+        //moves the object to origin, rotatates it and moves it back the same distance it took to move to origin
         HMatrix2D toOriginMatrix = new HMatrix2D();
         HMatrix2D fromOriginMatrix = new HMatrix2D();
         HMatrix2D rotateMatrix = new HMatrix2D();
@@ -57,6 +58,7 @@ public class TransformMesh : MonoBehaviour
 
    private void Transform()
    {
+        //updates vertices to move accordingly to the new change in position/rotation
         vertices = meshManager.clonedMesh.vertices;
 
         for (int i = 0; i < vertices.Length; i++)
