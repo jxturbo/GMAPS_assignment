@@ -73,7 +73,7 @@ public class HMatrix2D
                 result.entries[y, x] = left.entries[y, x] * scalar;
             }
         }
-        return result; // your code here
+        return result; 
     }
 
     // // Note that the second argument is a HVector2D object
@@ -126,7 +126,7 @@ public class HMatrix2D
 
 
 	    // and so on for another 7 entries
-	);
+	    );
     }
 
     public static bool operator ==(HMatrix2D left, HMatrix2D right)
@@ -142,7 +142,7 @@ public class HMatrix2D
             }
         }
         return true;
-        // your code here
+        
     }
 
     public static bool operator !=(HMatrix2D left, HMatrix2D right)
