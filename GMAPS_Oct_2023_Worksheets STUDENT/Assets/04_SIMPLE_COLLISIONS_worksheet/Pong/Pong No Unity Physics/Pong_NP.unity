@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 50845502}
   - component: {fileID: 50845503}
   - component: {fileID: 50845505}
+  - component: {fileID: 50845506}
   m_Layer: 0
   m_Name: LeftPaddle
   m_TagString: Untagged
@@ -215,12 +216,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50845501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31d7356ef274ba44b83db566f955b26b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
+--- !u!114 &50845506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50845501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a474062e14b23844b323097f42f78f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  axis: Vertical
 --- !u!1 &753258432
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,8 +543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c81757c99528a41a8148f77035b0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 6
-  speedY: 4
 --- !u!1 &1396930150
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,6 +554,7 @@ GameObject:
   - component: {fileID: 1396930151}
   - component: {fileID: 1396930152}
   - component: {fileID: 1396930153}
+  - component: {fileID: 1396930154}
   m_Layer: 0
   m_Name: RightPaddle
   m_TagString: Untagged
@@ -622,13 +636,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396930150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa2f8c645c0674f4f90feae46dc6964a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   up: 273
   down: 274
+--- !u!114 &1396930154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396930150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a474062e14b23844b323097f42f78f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  axis: Vertical2
 --- !u!1 &1448877019
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +748,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 4
+  serializedVersion: 5
   m_GIWorkflowMode: 0
   m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
@@ -760,7 +788,7 @@ LightingSettings:
   m_LightProbeSampleCountMultiplier: 4
   m_PVRBounces: 2
   m_PVRMinBounces: 2
-  m_PVREnvironmentMIS: 1
+  m_PVREnvironmentImportanceSampling: 1
   m_PVRFilteringMode: 0
   m_PVRDenoiserTypeDirect: 0
   m_PVRDenoiserTypeIndirect: 0
@@ -775,6 +803,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+  m_NumRaysToShootPerTexel: -1
 --- !u!1 &1573004564
 GameObject:
   m_ObjectHideFlags: 0
