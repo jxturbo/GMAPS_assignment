@@ -21,7 +21,10 @@ public class HMatrix2D
             }
         }
     }
-
+    //fills in the following matrix using 9 floats for 9 slots
+    //00 01 02
+    //10 11 12
+    //20 21 22
     public HMatrix2D(float m00, float m01, float m02,
              float m10, float m11, float m12,
              float m20, float m21, float m22)
@@ -44,6 +47,8 @@ public class HMatrix2D
         {
             for(int x = 0; x < left.entries.GetLength(1); x++)
             {
+                //takes the values stored in the 00 position(example) from both left and right and adds them together
+                //to form 1 number and sets it to the same position in the result matrix
                 result.entries[y, x] = left.entries[y, x] + right.entries[y, x];
             }
         }
@@ -57,6 +62,8 @@ public class HMatrix2D
         {
             for(int x = 0; x < left.entries.GetLength(1); x++)
             {
+                //takes the values stored in the 00 position(example) from both left and right and deducts one from the other
+                //to form 1 number and sets it to the same position in the result matrix
                 result.entries[y, x] = left.entries[y, x] - right.entries[y, x];
             }
         }
@@ -70,6 +77,8 @@ public class HMatrix2D
         {
             for(int x = 0; x < left.entries.GetLength(1); x++)
             {
+                //takes the values stored in the 00 position(example) from both left and right and multiples one with the other
+                //to form 1 number and sets it to the same position in the result matrix
                 result.entries[y, x] = left.entries[y, x] * scalar;
             }
         }
@@ -77,7 +86,8 @@ public class HMatrix2D
     }
 
     // // Note that the second argument is a HVector2D object
-    // //
+    // // Also note that HVector2D has three values, h is just rarely used in most cases
+    //and has a natural number of 1
     public static HVector2D operator *(HMatrix2D left, HVector2D right)
     {
         return new HVector2D
@@ -135,6 +145,10 @@ public class HMatrix2D
         {
             for(int x = 0; x < left.entries.GetLength(1); x++)
             {
+                 //takes the values stored in the 00 position(example) from both left and right
+                 //and checks if these values are not the same
+                 //keeps checking until the values are no longer the same or all the positions have
+                 //been looked through
                 if(left.entries[y, x] != right.entries[y, x])
                 {
                     return false;
@@ -151,6 +165,10 @@ public class HMatrix2D
         {
             for(int x = 0; x < left.entries.GetLength(1); x++)
             {
+                //takes the values stored in the 00 position(example) from both left and right
+                 //and checks if these values are  the same
+                //keeps checking until the values are the same or all the positions have
+                 //been looked through
                 if(left.entries[y, x] != right.entries[y, x])
                 {
                     return true;
@@ -185,8 +203,13 @@ public class HMatrix2D
     {
         for (int y = 0; y < entries.GetLength(0); y++)
         {
+            //00 01 02
+            //10 11 12
+            //20 21 22
             for(int x = 0; x < entries.GetLength(1); x++)
             {
+                //for 00 position, set the value to 1 for example
+                //checks if x and y position values are the same
                 entries[y, x] = x == y ? 1:0;
             }
         }
@@ -194,6 +217,9 @@ public class HMatrix2D
 
     public void setTranslationMat(float transX, float transY)
     {
+        //1 0 transX
+        //0 1 transY
+        //0 0 1
         setIdentity();
         entries[0,2] = transX;
         entries[1,2] = transY; 
@@ -201,6 +227,9 @@ public class HMatrix2D
 
     public void setRotationMat(float rotDeg)
     {
+        //cos(rad) -sin(rad) 0
+        //sin(rad) cos(rad)  0
+        //0        0         1
         setIdentity();
         float rad = rotDeg * (Mathf.PI / 180.0f);
         entries[0,0] =  Mathf.Cos(rad);
@@ -211,11 +240,20 @@ public class HMatrix2D
 
     public void setScalingMat(float scaleX, float scaleY)
     {
+        //scaleX 0      0
+        //0      scaleY 0
+        //0      0      1
         // your code here
+        setIdentity();
+        entries[0,0] =  scaleX;
+        entries[1,1] =  scaleY;
     }
 
     public void Print()
     {
+        //extracts the values of each position and prints them out with a space
+        //after the third position of each row is reached, it moves to the next line
+        //repeating the process
         string result = "";
         for (int r = 0; r < 3; r++)
         {
