@@ -13,10 +13,13 @@ public class Table2D : MonoBehaviour
 
     bool CheckBallCollision(Ball2D toCheck)
     {
+        //looks through each ball against the first ball
+        //cueball
         for (int i = 0; i < balls.Count; i++)
         {
-            Ball2D ball = balls[1];
-
+            Ball2D ball = balls[i];
+            //check if the ball in i position is close enough to cue ball
+            //and also making sure that the ball in i is NOT cueball
             if (ball.IsCollidingWith(toCheck) && toCheck != ball)
             {
                 return true;
@@ -28,6 +31,7 @@ public class Table2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //check if cueball if close enough to any ball
         if (CheckBallCollision(balls[0]))
         {
             Debug.Log("COLLISION!");

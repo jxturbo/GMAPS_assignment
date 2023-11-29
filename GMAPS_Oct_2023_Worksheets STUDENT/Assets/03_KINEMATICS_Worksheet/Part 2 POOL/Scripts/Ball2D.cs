@@ -33,7 +33,7 @@ public class Ball2D : MonoBehaviour
 
     public bool IsCollidingWith(Ball2D other)
     {
-        //done using HVector2D
+        //done using HVector2D instead of distance
         float distance = Util.FindDistance(Position, other.Position);
         return distance <= Radius + other.Radius;
     }
